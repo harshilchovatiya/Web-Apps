@@ -1,0 +1,108 @@
+
+.wrapper-icon .icon{
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 50%;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 22px;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .wrapper-icon .tooltip {
+    position: absolute;
+    top: 0;
+    line-height: 1.5;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #ffffff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  .wrapper-icon .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background-color: #ffffff;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  .wrapper-icon .icon:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .wrapper-icon .icon:hover span,
+  .wrapper-icon .icon:hover .tooltip {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+  }
+  .wrapper-icon .facebook:hover,
+  .wrapper-icon .facebook:hover .tooltip,
+  .wrapper-icon .facebook:hover .tooltip::before {
+    background-color: #3b5999;
+    color: #ffffff;
+  }
+  .wrapper-icon .twitter:hover,
+  .wrapper-icon .twitter:hover .tooltip,
+  .wrapper-icon .twitter:hover .tooltip::before {
+    background-color: #46c1f6;
+    color: #ffffff;
+  }
+  .wrapper-icon .instagram:hover,
+  .wrapper-icon .instagram:hover .tooltip,
+  .wrapper-icon .instagram:hover .tooltip::before {
+    background-color: #e1306c;
+    color: #ffffff;
+  }
+  .wrapper-icon .github:hover,
+  .wrapper-icon .github:hover .tooltip,
+  .wrapper-icon .github:hover .tooltip::before {
+    background-color: #333333;
+    color: #ffffff;
+  }
+  .wrapper-icon .youtube:hover,
+  .wrapper-icon .youtube:hover .tooltip,
+  .wrapper-icon .youtube:hover .tooltip::before {
+    background-color: #de463b;
+    color: #ffffff;
+  }
+  .wrapper-icon .website:hover,
+  .wrapper-icon .website:hover .tooltip,
+  .wrapper-icon .website:hover .tooltip::before {
+    background-color: #aaa;
+    color: #ffffff;
+  }
+  .wrapper-icon .linkedin:hover,
+  .wrapper-icon .linkedin:hover .tooltip,
+  .wrapper-icon .linkedin:hover .tooltip::before {
+    background: #0A66C2;
+    color: #ffffff;
+  }
+  .wrapper-icon .whatsapp:hover,
+  .wrapper-icon .whatsapp:hover .tooltip,
+  .wrapper-icon .whatsapp:hover .tooltip::before {
+    background-color:#25d366;
+    color: #ffffff;
+  }
+  .wrapper-icon .location:hover,
+  .wrapper-icon .location:hover .tooltip,
+  .wrapper-icon .location:hover .tooltip::before {
+    background-color:#1EA362;
+    color: #ffffff;
+  }

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+
+<body>
+    <form action="" id="contact-Form">
+        <div id="contactype-form">
+            <input id="E-mail" type="text" placeholder="Enter your Email addres">
+            <input id="Phonenumber" type="text" placeholder="Enter Your Phonenumber">
+            <input id="location" type="text" placeholder="Enter your Addres">
+            <button type="button" id="confirm-Contect">Okay</button>
+        </div>
+    </form>
+    <div class="contactCard"></div>
+</body>
+<script>
+    const confirmBtn = document.getElementById('confirm-Contect');
+    const contactForm = document.getElementById('contact-Form');
+    const contactypeform = document.getElementById('contactype-form');
+    const contactCard = document.querySelector(".contactCard");
+    confirmBtn.addEventListener("click", () => {
+        
+        const email = document.getElementById('E-mail').value;
+        const phno = document.getElementById('Phonenumber').value;
+        const location = document.getElementById('location').value;
+
+        console.log(email +""+phno + " " + location);
+
+        contactCard.innerHTML = `<a href="mailto:${email}" class="icons">
+            <span><i class="fas fa-envelope"></i></span>
+        </a>
+        <p class="contact-Type">E-mail address</p>
+        <a href="mailto:${email}">${email}</a>
+
+        <a href="tel:+91${phno}" class="icons">
+            <span><i class="fas fa-phone-alt"></i></span>
+        </a>
+        <p class="contact-Type">Phone Number</p>
+        <a href="tel:+91${phno}">${phno}</a>
+
+        <a href="" class="icons">
+            <span><i class="fas fa-map-marker-alt"></i></span>
+        </a>
+        <p class="contact-Type">Address</p>
+        <a href="">${location}</a>`
+        LinkSocialcss();
+        contactForm.parentNode.removeChild(contactForm);
+    });
+
+    function LinkSocialcss() {
+        let head = document.getElementsByTagName('HEAD')[0];
+        let link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'card.css';
+        head.appendChild(link);
+        Iconcds()
+        console.log("Css Added");
+    }
+
+    function Iconcds() {
+        let head = document.getElementsByTagName('HEAD')[0];
+        let link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css';
+        head.appendChild(link);
+        console.log("CDN is added");
+
+    }
+
+
+</script>
+
+</html>

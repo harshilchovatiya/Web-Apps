@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Harshil Chovatiya - Social Links</title>
+    <meta name="description" content="A form for adding social media links with icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="src/social.css">
+</head>
+
+<body>
+
+    <form id="socialForm">
+        <div id="socialFields">
+            <!-- Initial social media fields -->
+            <div class="social-field">
+                <label for="socialSelect">Select Social Media:</label>
+                <select class="socialSelect">
+                    <option value="Website">Website</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Twitter">Twitter</option>
+                    <option value="Youtube">Youtube</option>
+                    <option value="LinkedIn">LinkedIn</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Github">Github</option>
+                    <option value="Whatsapp">Whatsapp</option>
+                    <option value="Location">Location</option>
+                </select>
+                <input class="linkInput" type="text" placeholder="Enter Link">
+            </div>
+        </div>
+
+        <button type="button" id="addSocialField">Add Social Media</button>
+        <button type="button" id="preview">Preview</button>
+
+        <div class="wrapper-icon" id="iconList"></div>
+    </form>
+
+    <script>
+        const socialForm = document.getElementById("socialForm");
+        const linkList = document.getElementById("linkList");
+        const previewButton = document.getElementById("preview");
+        const socialFields = document.getElementById("socialFields");
+        const addSocialField = document.getElementById("addSocialField");
+        const iconList = document.getElementById("iconList");
+
+        addSocialField.addEventListener("click", () => {
+            // Create a new social media field
+            const newField = document.createElement("div");
+            newField.classList.add("social-field");
+            newField.innerHTML = `
+                <label for="socialSelect">Select Social Media:</label>
+                <select class="socialSelect">
+                    <option value="Website">Website</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Twitter">Twitter</option>
+                    <option value="Youtube">Youtube</option>
+                    <option value="LinkedIn">Linkedin</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Github">Github</option>
+                    <option value="Whatsapp">Whatsapp</option>
+                    <option value="Location">Location</option>
+                </select>
+                <input class="linkInput" type="text" placeholder="Enter Link">
+            `;
+            socialFields.appendChild(newField);
+        });
+
+        previewButton.addEventListener("click", () => {
+            const socialSelects = document.querySelectorAll(".socialSelect");
+            const linkInputs = document.querySelectorAll(".linkInput");
+
+            iconList.innerHTML = "";
+
+            for (let i = 0; i < socialSelects.length; i++) {
+                const socialMedia = socialSelects[i].value;
+                const link = linkInputs[i].value;
+
+                // if (socialMedia !== "Website" && link) {
+                const icon = document.createElement("a");
+                icon.className = `icon ${socialMedia.toLowerCase()}`;
+                icon.href = link;
+                if (socialMedia !== "Website" && link) {
+                    icon.innerHTML = `
+                        <div class="tooltip">${socialMedia}</div>
+                        <span><i class="fab fa-${socialMedia.toLowerCase()}"></i></span>
+                    `;
+                }
+                if (socialMedia === "Website" && link) {
+                    icon.innerHTML = `
+                        <div class="tooltip">${socialMedia}</div>
+                        <span><i class="fas fa-globe"></i></span>
+                    `;
+                }
+                if (socialMedia === "Location" && link) {
+                    icon.innerHTML = `
+                        <div class="tooltip">${socialMedia}</div>
+                        <span><i class="fas fa-map-marked-alt"></i></span>
+                    `;
+                }
+
+                iconList.appendChild(icon);
+            }
+        });
+    </script>
+</body>
+
+</html> 
+

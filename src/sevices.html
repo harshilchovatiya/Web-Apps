@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services-Form</title>
+    <link rel="stylesheet" href="services.css">
+</head>
+
+<body>
+    <form action="" id="services-Form">
+        <input class="service-title" type="text" placeholder="Enter your Service">
+        <input class="service-des" type="text" placeholder="Enter Your Description">
+        <input class="service-img" type="text" placeholder="Enter your Image Link">
+        <input class="service-link" type="text" placeholder="Enter your Websie or your any link">
+        <button type="button" id="add-Services">Add Services</button>
+        <button type="button" id="confirm-Services">Okay</button>
+    </form>
+
+
+    <!-- Elemets are Created by the user -->
+    <div class="services"></div>
+
+    <!-- This is Static Ui Part -->
+
+    <!-- <div class="services">
+            <div class="service">
+                <div class="service-image">
+                    <a href="">
+                        <img src="https://1.bp.blogspot.com/-wuFxXJPGCpA/XrPHNgBv6VI/AAAAAAAAAVM/o9dL10i868oc8HmMfNaa0Uuym7fGtFSvQCLcBGAsYHQ/s1600/Pure%2BCSS%2BResponsive%2BCards%2BDesign%2Bwith%2BHover%2BEffect.png"
+                            alt="123">
+                    </a>
+                </div>
+                <p class="servicesname">Title</p>
+                <p class="service-body">
+                    Nullam ac tristique nulla, at convallis quam. Integer consectetur mi nec magna tristique, non lobortis.
+                </p>
+            </div>
+        </div> -->
+
+
+    <script>
+        const services = document.querySelector('.services');
+
+        const serviceForm = document.getElementById('services-Form');
+
+        // const title = document.querySelectorAll('service-title');
+        // const description = document.querySelectorAll('service-des');
+        // const link = document.querySelectorAll('service-link');
+        // const image = document.querySelectorAll('service-img');
+        let serviceCount = 1;
+
+        const addMore = document.getElementById('add-Services');
+        const confirmBtn = document.getElementById('confirm-Services');
+
+        addMore.addEventListener("click", () => {
+            serviceCount++;
+            const newField = document.createElement("div");
+            newField.classList.add("serviceForm");
+            newField.innerHTML = `  <input class="service-title" type="text" placeholder="Enter your Service">
+            <input class="service-des" type="text" placeholder="Enter Your Description">
+            <input class="service-img" type="text" placeholder="Enter your Image Link">
+            <input class="service-link" type="text" placeholder="Enter your Websie or your any link">
+            `;
+            serviceForm.appendChild(newField);
+        });
+
+        confirmBtn.addEventListener("click", () => {
+            const titles = document.querySelectorAll('.service-title');
+            const descriptions = document.querySelectorAll('.service-des');
+            const images = document.querySelectorAll('.service-img');
+            const links = document.querySelectorAll('.service-link');
+
+            // const newdiv = document.createElement("div");
+            let finalCode = '';
+            for (let i = 0; i < serviceCount; i++) {
+                const titleValue = titles[i].value;
+                const descriptionValue = descriptions[i].value;
+                const imageValue = images[i].value;
+                const linkValue = links[i].value;
+
+                console.log(`Service ${i + 1}: Title - ${titleValue}, Description - ${descriptionValue}, Image Link - ${imageValue}, Link - ${linkValue}`);
+
+                // newdiv.innerHTML =`
+                finalCode += `
+                
+            <div class="service">
+                <div class="service-image">
+                    <a href="${imageValue}">
+                        <img src="${imageValue}"
+                            alt="${titleValue}">
+                    </a>
+                </div>
+                <p class="servicesname">${titleValue}</p>
+                <p class="service-body">${descriptionValue}</p>
+            </div>
+                `;
+
+            }
+            services.innerHTML = finalCode;
+        });
+
+
+        // add css function on this is remainnig 
+        // Make the Css function 
+    </script>
+
+
+
+</body>
+
+</html>
